@@ -12,3 +12,6 @@ The schema was normalised from 1NF to 3NF through several iterations, resulting 
 
 ## Key Design Decisions
 Course-to-Module and Module-toLecturer relationships are many to many, so without duplicating data acorss rows, it was solved by creating seperate associative tables each holding just the foreign keys- a standard normalisation technique to avoid repeating group data. 
+
+Several Fields use CHECK constraints ro restrict values to a fixed set o valid options (eg: CourseLevel only accepts 'UG' or 'PG', PaymentStatus only accepts 'Paid
+ or 'Partial'), so invalid data is rejected by the database itself rather than relying on the application layer to find mistakes.
