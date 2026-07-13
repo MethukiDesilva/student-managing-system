@@ -2,7 +2,7 @@
 
 ## Project Overview
 This project is a relational databaase system for managing a univerisity's courses,modules, students,lecturers, enrollements, assessments, and payments. It provides an integrated solution to the problem of montoring the progress of a student through his/her degree program starting from enrollment in a particular course to allocation of modules and lectures, to recording assesment marks and payments-all in one connected system insead of scattered spreadsheets. 
-I have inserted the insert, create queries, select queries and erd to demonstrate the module.
+I have inserted the insert, create queries, select queries and erd to demonstrate the project.
 ## Database Schema
 ![ER Diagram](erd.png)
 
