@@ -34,10 +34,10 @@ INSERT INTO SCHEDULE VALUES ('SC02',102,201,'Tuesday',TO_DATE('13:00','HH24:MI')
 INSERT INTO SCHEDULE VALUES ('SC03',103,202,'Wednesday',TO_DATE('10:00','HH24:MI'),TO_DATE('12:00','HH24:MI'),'A05','Portland Building');
 INSERT INTO SCHEDULE VALUES ('SC04',104,203,'Thursday',TO_DATE('14:00','HH24:MI'),TO_DATE('16:00','HH24:MI'),'C21','Park Building');
 
-INSERT INTO STUDENT VALUES ('ST01','Emma','Wilson',DATE '2004-03-12','Female','emma.wilson@student.ac.uk','07700900001','12 High St','Portsmouth','PO1 2AB','UK','British',DATE '2023-09-18');
-INSERT INTO STUDENT VALUES ('ST02','Liam','Brown',DATE '2003-11-05','Male','liam.brown@student.ac.uk','07700900002','45 Elm Rd','Portsmouth','PO2 3CD','UK','British',DATE '2023-09-18');
-INSERT INTO STUDENT VALUES ('ST03','Aisha','Khan',DATE '2005-01-22','Female','aisha.khan@student.ac.uk','07700900003','8 Oak Ave','Southampton','SO14 5EF','UK','British',DATE '2024-09-16');
-INSERT INTO STUDENT VALUES ('ST04','Carlos','Diaz',DATE '2002-07-30','Male','carlos.diaz@student.ac.uk','07700900004','3 Bay View','Portsmouth','PO4 8GH','Spain','Spanish',DATE '2023-09-18');
+INSERT INTO STUDENT VALUES ('ST01','Emma','Wilson',DATE '2004-03-12','Female','emma.wilson@student.ac.uk','07700900001','Portsmouth','PO1 2AB','UK','British',DATE '2023-09-18');
+INSERT INTO STUDENT VALUES ('ST02','Liam','Brown',DATE '2003-11-05','Male','liam.brown@student.ac.uk','07700900002','Portsmouth','PO2 3CD','UK','British',DATE '2023-09-18');
+INSERT INTO STUDENT VALUES ('ST03','Aisha','Khan',DATE '2005-01-22','Female','aisha.khan@student.ac.uk','07700900003','Southampton','SO14 5EF','UK','British',DATE '2024-09-16');
+INSERT INTO STUDENT VALUES ('ST04','Carlos','Diaz',DATE '2002-07-30','Male','carlos.diaz@student.ac.uk','07700900004','Portsmouth','PO4 8GH','Spain','Spanish',DATE '2023-09-18');
 
 INSERT INTO ENROLMENT VALUES ('EN01','ST01','CO01',DATE '2023-09-18',2023,'Semester 1','Active');
 INSERT INTO ENROLMENT VALUES ('EN02','ST02','CO01',DATE '2023-09-18',2023,'Semester 1','Active');
@@ -56,7 +56,7 @@ INSERT INTO ASSESSMENT VALUES ('AS03','SM02','Exam',DATE '2024-01-20',100,55);
 INSERT INTO ASSESSMENT VALUES ('AS04','SM03','Coursework',DATE '2024-01-15',100,42);
 INSERT INTO ASSESSMENT VALUES ('AS05','SM05','Exam',DATE '2024-01-18',100,88);
 
-INSERT INTO PAYMENT VALUES ('PA01','ST01','EN01',DATE '2023-09-20',4625.00,'Card','Partial');
-INSERT INTO PAYMENT VALUES ('PA02','ST02','EN02',DATE '2023-09-19',9250.00,'BankTransfer','Paid');
-INSERT INTO PAYMENT VALUES ('PA03','ST03','EN03',DATE '2024-09-17',12500.00,'Card','Paid');
-INSERT INTO PAYMENT VALUES ('PA04','ST04','EN04',DATE '2023-09-19',5000.00,'Cash','Partial');
+INSERT INTO PAYMENT VALUES ('PA01','EN01',DATE '2023-09-20',4625.00,'Card','Partial');
+INSERT INTO PAYMENT VALUES ('PA02','EN02',DATE '2023-09-19',9250.00,'BankTransfer','Paid');
+INSERT INTO PAYMENT VALUES ('PA03','EN03',DATE '2024-09-17',12500.00,'Card','Paid');
+INSERT INTO PAYMENT VALUES ('PA04','EN04',DATE '2023-09-19',5000.00,'Cash','Partial');
