@@ -107,7 +107,6 @@ CREATE TABLE STUDENT (
     StudentGender         VARCHAR2(20),
     StudentEmail          VARCHAR2(60) NOT NULL,
     StudentPhone          VARCHAR2(20),
-    StudentAddress        VARCHAR2(80),
     StudentCity           VARCHAR2(40),
     StudentPostcode       VARCHAR2(10),
     StudentCountry        VARCHAR2(40),
@@ -161,18 +160,16 @@ CREATE TABLE ASSESSMENT (
 );
 
 CREATE TABLE PAYMENT (
-    PaymentID           VARCHAR2(4) NOT NULL,
-    StudentID           VARCHAR2(4) NOT NULL,
-    EnrolmentID         VARCHAR2(4) NOT NULL,
-    PaymentDate         DATE DEFAULT SYSDATE,
-    AmountPaid          NUMBER(8,2) NOT NULL,
-    PaymentMethod       VARCHAR2(12) NOT NULL,
-    PaymentStatus       VARCHAR2(10) NOT NULL,
+    PaymentID      VARCHAR2(4)  NOT NULL,
+    EnrolmentID    VARCHAR2(4)  NOT NULL,
+    PaymentDate    DATE DEFAULT SYSDATE,
+    AmountPaid     NUMBER(8,2)  NOT NULL,
+    PaymentMethod  VARCHAR2(12) NOT NULL,
+    PaymentStatus  VARCHAR2(10) NOT NULL,
     CONSTRAINT pk_payment PRIMARY KEY (PaymentID),
-    CONSTRAINT fk_payment_student FOREIGN KEY (StudentID) REFERENCES STUDENT (StudentID),
     CONSTRAINT fk_payment_enrolment FOREIGN KEY (EnrolmentID) REFERENCES ENROLMENT (EnrolmentID),
     CONSTRAINT chk_payment_amount CHECK (AmountPaid > 0),
     CONSTRAINT chk_payment_method CHECK (PaymentMethod IN ('Cash','Card','BankTransfer')),
     CONSTRAINT chk_payment_status CHECK (PaymentStatus IN ('Paid','Partial'))
-   
+);
 );   
