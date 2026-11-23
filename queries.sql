@@ -1,4 +1,4 @@
---List every student withh the respective courses they are enrolled in
+--List every student with the respective courses they are enrolled in
 
 SELECT s.StudentID, s.StudentFirstName || ' ' || s.StudentLastName AS StudentName,
        c.CourseName, e.EnrolmentStatus
