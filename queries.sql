@@ -38,18 +38,24 @@ ORDER BY AvgMark DESC;
 --displays students who scored higher than the average of their own module
 
 SELECT s.StudentFirstName || ' ' || s.StudentLastName AS StudentName,
-       m.ModuleName, a.MarksObtained
+       m.ModuleName,
+       a.MarksObtained
 FROM ASSESSMENT a
-JOIN STUDENT_MODULE sm ON a.StudentModuleID = sm.StudentModuleID
-JOIN ENROLMENT e        ON sm.EnrolmentID    = e.EnrolmentID
-JOIN STUDENT s          ON e.StudentID       = s.StudentID
-JOIN MODULE m           ON sm.ModuleID       = m.ModuleID
+JOIN STUDENT_MODULE sm
+    ON a.StudentModuleID = sm.StudentModuleID
+JOIN ENROLMENT e
+    ON sm.EnrolmentID = e.EnrolmentID
+JOIN STUDENT s
+    ON e.StudentID = s.StudentID
+JOIN MODULE m
+    ON sm.ModuleID = m.ModuleID
 WHERE a.MarksObtained > (
     SELECT AVG(a2.MarksObtained)
     FROM ASSESSMENT a2
-    JOIN STUDENT_MODULE sm2 ON a2.StudentModuleID = sm2.StudentModuleID
+    JOIN STUDENT_MODULE sm2
+        ON a2.StudentModuleID = sm2.StudentModuleID
     WHERE sm2.ModuleID = sm.ModuleID
-
+)
 --displays students who have not failed any assessment
 
 SELECT DISTINCT s.StudentID, s.StudentFirstName || ' ' || s.StudentLastName AS StudentName
