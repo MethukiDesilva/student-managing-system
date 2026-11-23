@@ -1,4 +1,4 @@
-NSERT INTO FACULTY VALUES ('FA01','Faculty of Science & Technology');
+INSERT INTO FACULTY VALUES ('FA01','Faculty of Science & Technology');
 INSERT INTO FACULTY VALUES ('FA02','Faculty of Business');
 
 INSERT INTO DEPARTMENT VALUES ('DE01','FA01','Computer Science','Dr Alan Turing');
