@@ -1,4 +1,4 @@
-#List every student withh the respective courses they are enrolled in
+--List every student withh the respective courses they are enrolled in
 
 SELECT s.StudentID, s.StudentFirstName || ' ' || s.StudentLastName AS StudentName,
        c.CourseName, e.EnrolmentStatus
@@ -7,7 +7,7 @@ JOIN ENROLMENT e ON s.StudentID = e.StudentID
 JOIN COURSE c    ON e.CourseID  = c.CourseID
 ORDER BY s.StudentID;
 
-# It joins tables to show which lecturer teaches which module, and when/where
+--It joins tables to show which lecturer teaches which module, and when/where
 
 SELECT m.ModuleName, l.LecturerFirstName || ' ' || l.LecturerLastName AS Lecturer,
        sch.DayOfWeek, TO_CHAR(sch.StartTime,'HH24:MI') AS Starts,
@@ -15,9 +15,15 @@ SELECT m.ModuleName, l.LecturerFirstName || ' ' || l.LecturerLastName AS Lecture
 FROM SCHEDULE sch
 JOIN MODULE m    ON sch.ModuleID   = m.ModuleID
 JOIN LECTURER l  ON sch.LecturerID = l.LecturerID
-ORDER BY sch.DayOfWeek;
-
-#Calculates average mark per module, and display averages above 50 for each module and arranging them from highest to lowest 
+ORDER BY CASE sch.DayOfWeek
+           WHEN 'Monday'    THEN 1
+           WHEN 'Tuesday'   THEN 2
+           WHEN 'Wednesday' THEN 3
+           WHEN 'Thursday'  THEN 4
+           WHEN 'Friday'    THEN 5
+         END,
+         sch.StartTime;
+--Calculates average mark per module, and display averages above 50 for each module and arranging them from highest to lowest 
 
 SELECT m.ModuleName,
        ROUND(AVG(a.MarksObtained),1) AS AvgMark,
@@ -29,7 +35,7 @@ GROUP BY m.ModuleName
 HAVING AVG(a.MarksObtained) > 50
 ORDER BY AvgMark DESC;
 
-#displays students who scored higher than the average of their own module
+--displays students who scored higher than the average of their own module
 
 SELECT s.StudentFirstName || ' ' || s.StudentLastName AS StudentName,
        m.ModuleName, a.MarksObtained
@@ -44,7 +50,7 @@ WHERE a.MarksObtained > (
     JOIN STUDENT_MODULE sm2 ON a2.StudentModuleID = sm2.StudentModuleID
     WHERE sm2.ModuleID = sm.ModuleID
 
-#displays students who have not failed any assessment
+--displays students who have not failed any assessment
 
 SELECT DISTINCT s.StudentID, s.StudentFirstName || ' ' || s.StudentLastName AS StudentName
 FROM STUDENT s
