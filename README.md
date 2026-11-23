@@ -4,7 +4,8 @@
 This project is a relational databaase system for managing a univerisity's courses,modules, students,lecturers, enrollements, assessments, and payments. It provides an integrated solution to the problem of montoring the progress of a student through his/her degree program starting from enrollment in a particular course to allocation of modules and lectures, to recording assesment marks and payments-all in one connected system insead of scattered spreadsheets. 
 I have inserted the insert, create queries, select queries and erd to demonstrate the project.
 ## Database Schema
-![ER Diagram](erd.png)
+
+<img width="3120" height="1580" alt="ER_Diagram_Student_Management_Dark" src="https://github.com/user-attachments/assets/d02b147f-51f0-49a7-956e-b8f531faeeb1" />
 
 The schema was normalised from 1NF to 3NF through several iterations, resulting in 13 tables including three associative (junction) tables - ' Course_Moduke', 'Module_Lecturer', and 'Student_Module'- to resolve many to many relationships in the design.
 ## Technologies used
